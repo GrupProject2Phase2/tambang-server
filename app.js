@@ -1,7 +1,12 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+  }
 const app = require('express')()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 PORT = process.env.PORT || 3000
+var cors = require('cors')
+app.use(cors())
 let users = {}
 
 
